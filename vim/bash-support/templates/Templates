@@ -1,0 +1,19 @@
+
+§ =============================================================
+§ ========== USER MACROS ======================================
+§ =============================================================
+§
+|AUTHOR|       = Tang 
+|AUTHORREF|    = Tang 
+|EMAIL|        = chao.tang.1@gmail.com
+|ORGANIZATION| = le2p
+|COPYRIGHT|    = Copyright (c) |YEAR|, |AUTHOR|
+§
+§ =============================================================
+§ ========== FILE INCLUDES ====================================
+§ =============================================================
+§
+|includefile| = bash.comments.template
+|includefile| = bash.statements.template
+|includefile| = bash.paramsub.template
+§

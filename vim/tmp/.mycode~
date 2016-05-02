@@ -1,0 +1,1 @@
+rsync -arzhSPH ctang@argo:/home/netapp-clima-scratch/ctang/Modeling/Grelless/*.job ./

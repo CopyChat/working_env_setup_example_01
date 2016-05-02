@@ -1,0 +1,100 @@
+source /Users/tang/Shell/netCDF/sensitivity.EIN15.5year.sh,V
+source /Users/tang/Shell/functions.sh,V
+#. /usr/local/scisoft/bin/irafuser.bash,V
+. /usr/local/scisoft/bin/Setup.bash,V
+PATH=/usr/local/scisoft/packages/sm2_4_34/bin:$PATH;export PATH,V
+MANPATH=/usr/local/scisoft/packages/jpeg-8d/share/man:$MANPATH;export MANPATH,V
+change 3,V
+chao.tang@univ-reunion.fr,v
+Novembre@macbook-air-de-marie-2.home,v
+"=================================================== for R ,V
+',v
+Forcevar.j'/hist/'GCM'/'Forcevar.j'_Amon_'GCM'_historical_r1i1p1_199601-200512.nc',v
+/Users/tang/climate/Modeling/333/Had.G71E0001/output/pprcmdata/monthly',v
+/Users/tang/climate/CMIP5/monthly',v
+ES,v
+-,v
+HadGEM2,v
+obs data works not good,v
+********** obs data works not good,V
+*************************************,v
+***********************************************,V
+=,v
+1,v
+.,v
+r,v
+u,v
+e,v
+l,v
+o,v
+c,v
+ ,v
+  couleur.1='blue->white->red',V
+  'draw title correlation of 'OBSproj.j' and nino_3.4 index ',V
+  'draw title correlation of 'Plotvar.j'_'GCM' and nino_3.4 index ',V
+'OBSproj.j',v
+j,v
+  couleur.1='blue->white->red'  OBScouleur.2='white->darkgreen'  OBScouleur.3='white->violet->deeppink'  OBScouleur.4='white->deepskyblue->darkblue',V
+    'quit',V
+2,v
+*=================================================== ,V
+*=================================================== * read stadard anomaly    'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/ENSO/standardized_SST_Anomaly_199601-200512.nc'    'set t 1 120'    'define sst=tas.1'    'close 1',V
+    'define sst='sst,t=51,t=120''    'quit',V
+    'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/GPCP/precip.mon.mean.1996-2005.nc',V
+   File format: netCDF4    -1 : Institut Source   Ttype    Levels Num  Gridsize Num Dtype : Parameter ID     1 : unknown  unknown  instant       1   1         1   1  F64  : -1               Grid coordinates :     1 : lonlat       > size      : dim = 1  nx = 1  ny = 1                        lon       : first = 0  degrees_east                        lat       : first = 0  degrees_north   Vertical coordinates :     1 : surface                  : 0    Time coordinate :  120 steps     RefTime =  1859-12-01 00:00:00  Units = days  Calendar = standard  Bounds = true  YYYY-MM-DD hh:mm:ss  YYYY-MM-DD hh:mm:ss  YYYY-MM-DD hh:mm:ss  YYYY-MM-DD hh:mm:ss,V
+2006-01-16 12:00:00  2006-02-15 00:00:00,v
+output='crrelation_maps_'Plotvar'',V
+      'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/CERES/rsds_CERES-EBAF_L3B_Ed2-8_200003-201405.nc',V
+*=================================================== *===================================================  for pr*=================================================== *=================================================== ****** open obs data    'clear'    'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/GPCP/precip.mon.mean.1996-2005.nc'    'set t 1 120'    if(SWIO='1')      'set lon 3 107'      'set lat -37 -3'    endif    'define forcevar=precip'    'set gxout shaded'    'define corr=tcorr(sst,forcevar,t=1,t=120)'  'run colors.gs'  'set lev 10'  'color -0.3 0.3 -kind blue->white->red'*===================================================   'set t 1'* there's no color bar without this line*===================================================   'd corr'  'cbarn '*  'drawstr -p 12 -k 5 -z 0.25 -t 'monthlab' -xo -0.3'  'draw title 'Plotvar.2' correlation vs nino_3.4 index'  'draw ylab 10 year mean'*===================================================     output='crrelation_maps_'Plotvar.2''    'save 'output''*===================================================     say 'open 'output'.eps'    '! open 'output'.eps',V
+TEMP,v
+p,v
+i,v
+    'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/ERA_Interim/ERA.t2m.mon.mean.1996-2005.nc',V
+****** open obs data    'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/ERA_Interim/ERA.t2m.mon.mean.1996-2005.nc'    'set t 1 120'    if(SWIO='1')      'set lon 3 107'      'set lat -37 -3'    endif    'define forcevar=t2m'    'set gxout shaded'    'define corr=tcorr(sst,forcevar,t=1,t=120)'  'run colors.gs'  'set lev 10'  'color -0.3 0.3 -kind blue->white->red'*===================================================   'set t 1'* there's no color bar without this line*===================================================   'd corr'  'cbarn '*  'drawstr -p 12 -k 5 -z 0.25 -t 'monthlab' -xo -0.3'  'draw title 'Plotvar.1' correlation vs nino_3.4 index'  'draw ylab 10 year mean'*===================================================     'save 'output''*===================================================     say 'open 'output'.eps'    '! open 'output'.eps',V
+      'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/GPCP/precip.mon.mean.1996-2005.nc',V
+while(j<=jmax),V
+j=1; jmax=2,V
+    '! killapp Preview',V
+****** open RegCM output CCM,V
+,V
+*,v
+      'set ,V
+*  'set grads off'*  'set mpdset hires'*  'set hershey off'*  'set lon 3 80'*  'set lat -3 -37',v
+Forcing.1='Had_hist',V
+of tas, pr, rsds, clt',v
+),v
+t,v
+n,v
+U,v
+(,v
+* 6, RegCM plus factor:Modelpls.1='-273.5'Modelpls.2='0'Modelpls.3='0'Modelpls.4='1'* 7, GCM ouput var name in RegCM:Forcevar.1='tas'Forcevar.2='pr'Forcevar.3='rsds'Forcevar.4='clt'* 8, GCM cross factor:Forcecrs.1='1'Forcecrs.2='86400'Forcecrs.3='1'Forcecrs.4='1'* 9, GCM plus factor:Forcepls.1='-273.5'Forcepls.2='0'Forcepls.3='0'Forcepls.4='1'*===================================== for the Plot  biasmin.1=-6  biasmax.1=6  biasmin.2=-5  biasmax.2=5  biasmin.3=-100  biasmax.3=100  biasmin.4=-100  biasmax.4=100  obsmin.1=0  obsmax.1=30  obsmin.2=0  obsmax.2=10  obsmin.3=80  obsmax.3=280  obsmin.4=0  obsmax.4=100,V
+* 2, Varibale units to be ploted:Unit.1='degC'Unit.2='mm/day'Unit.3='W/m2'Unit.4='%'* 3, RegCM output tag:RegCMtag.1='SRF'RegCMtag.2='SRF'RegCMtag.3='SRF'RegCMtag.4='RAD'* 4, model ouput var name in RegCM:Modelvar.1='s01tas'Modelvar.2='pr'Modelvar.3='rsds'Modelvar.4='clt'* 5, RegCM cross factor:Modelcrs.1='1'Modelcrs.2='86400'Modelcrs.3='1'Modelcrs.4='100',V
+GCM='HadGEM2-ES',V
+* of OBS,V
+RegCM4 minus OBS in season ,v
+    'set lon 3 107'    'set lat -37 -3',V
+for,v
+*--------------------------------------------------- ,V
+    'set xlopts 1 4 0.15'    'set ylopts 1 4 0.15'*    'set strsiz 0.2 0.2'*---------------------------------------------------   say '--------------------------------------------plot number is 'pnobs''  'run colors.gs'  'set lev 10'  'color 'obsmin.j' 'obsmax.j' -kind 'OBScouleur.j''  'set gxout shaded'  'set lon 3 107'  'set lat -37 -3'  'd corobs'  'cbarn 0.6 0 5.5 1.5'*  'drawstr -p 12 -k 5 -z 0.25 -t 'monthlab' -xo -0.3'  'draw title correlation of 'OBSproj.j' and nino_3.4 index '* ----------------------------- to draw mean bias  'd aave(corobs,global)'  meanbias1=sublin(result,1)  meanbias = subwrd(meanbias1,4)*  meanbias = math_nint(meanbias1)*  meanbias: C_format = "%.2f"  say 'mean='meanbias  'drawstr -p 12 -k 5 -z 0.25 -t 'meanbias' -xo -0.3 -yo -1.6 %g',V
+    'set xlopts 1 4 0.15'    'set ylopts 1 4 0.15'    'set font 0.1 small small arial'*   'sel xlopts color thckns size' for the axis* string size horizental vertical' for 'monthlab'*---------------------------------------------------   'run colors.gs'  'color 'obsmin.j' 'obsmax.j' -kind 'OBScouleur.j''* 'color -var biasmodvar -kind blue->white->red'  'set lon 3 107'  'set lat -37 -3'    'd corfor'  'cbarn 0.6 0 5.5 1.5'*  'drawstr -p 12 -k 5 -z 0.25 -t 'monthlab' -xo -0.3'  'draw title correlation of 'OBSproj.j' and nino_3.4 index '* ----------------------------- to draw mean bias  'd aave(corfor,global)'  meanbias1=sublin(result,1)  meanbias = subwrd(meanbias1,4)*  meanbias = math_nint(meanbias1)*  meanbias: C_format = "%.2f"  say 'meanbias='meanbias  'drawstr -p 12 -k 5 -z 0.25 -t 'meanbias' -xo -0.3 -yo -1.6 %g',V
+    'set lat -37 -3',V
+    'set lon 3 107',V
+  'quit',V
+    'set dfile 1',V
+a,v
+v,v
+S,v
+B,v
+O,v
+    /*'define obsvar=('OBSvar.j')*('OBScrs.j')+('OBSpls.j')'*/,V
+        'sdfopen /Users/tang/climate/GLOBALDATA/OBSDATA/ERA_Interim/ERA.t2m.mon.mean.1996-2005.nc',V
+  ,V
+  'set gxout shaded',V
+  'run colors.gs'  'set lev 10'  'color -0.3 0.3 -kind blue->white->red',V
+  'define corr=tcorr(sst,forcevar,t=1,t=120)',V
+  'set grads off'  'set grid off'  'set mpdset hires',V
+    /*'set lat -37 -3'*/,V
+    /*'set lon 0 110'*/,V
+    'sdfopen /Users/tang/climate/CMIP5/monthly/tas/hist/HadGEM2-ES/tas_Amon_HadGEM2-ES_historical_r1i1p1_199601-200512.nc',V
+tas_Amon_HadGEM2-ES_historical_r1i1p1_199601-200512.nc',v
+standardized_SST_Anomaly_199601-200512.nc',v
