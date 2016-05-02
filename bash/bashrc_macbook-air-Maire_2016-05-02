@@ -29,22 +29,13 @@ EDITOR=/usr/bin/vim
 #==================================================================== 
 #==================================================================== 
 #======================================================= for my alias
-#alias kla="ssh -X tangchao@202.121.49.52" # the key is in the ~/Shell/kla
+#alias kla="ssh -X tangchao@202.121.49.52" # the 
 alias gp="/usr/local/bin/gnuplot"
 
 alias dash="call_dash.sh"
 
 #==================================================================== 
 #=================================================== my servers
-alias tt="ssh -Y ctang@titan.univ.run" #the key is jing90908ss
-alias ttt="ssh -Y ctang@ccur.univ-reunion.fr" #the key is jing90908ss
-alias titan="echo  ctang@ccur.univ-reunion.fr" #the key is jing90908ss
-alias imac="ssh -Y le2p@titan.univ.run" #the key is aurore09
-alias ham="ssh -Y u237007@thunder7.zmaw.de" #the key is jing9090*ss
-alias hamm="ssh -Y u237007@login.zmaw.de" #the key is jing9090*ss
-
-alias cines="color 1 7 "m2et72j7taje";ssh -Y bmorel@occigen.cines.fr"  #  m2et72j7taje
-alias password_mac="ehco le2p, aurore09"
 
 
 #==================================================================== 
@@ -119,7 +110,6 @@ alias ubuntu="ssh tangchao90908@ubuntu.unix-center.net"
 alias fedoraedu="ssh tangchao90908@fedora-edu.unix-center.net"
 alias fedora="ssh tangchao90908@fedora.unix-center.net"
 alias enca="enca -L zh_CN -x UTF-8"
-# key jing9090908(unix-center,www.unix-center.net)
 #=================================================================
 #============================================ for my Shell scripts
 #source ~/Shell/.shrc
